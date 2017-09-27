@@ -32,17 +32,17 @@ var port = process.env.PORT || 3000
 
 
 
-// db.connect(db.MODE_TEST, function(err) {
-//     if (err) {
-//         console.log('Unable to connect to MySQL.')
-//         process.exit(1)
-//     } else {
-//         app.listen(4000, function() {
-//             console.log('Listening on port 4000...')
-//         })
-//     }
-// })
-
-app.listen(port, function() {
+db.connect(db.MODE_TEST, function(err) {
+    if (err) {
+        console.log('Unable to connect to MySQL.')
+        process.exit(1)
+    } else {
+        app.listen(port, function() {
             console.log('app listening...')
         })
+    }
+})
+
+// app.listen(port, function() {
+//             console.log('app listening...')
+//         })
