@@ -11,7 +11,7 @@ var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
 router.route('/')
 .post(parseUrlencoded, function (request,response){
-         console.log("THE BODY IS ",request.body);
+         //console.log("THE BODY IS ",request.body);
     db_stories.create(request.body.title, request.body.description, new Date(), request.body.img, request.body.link, function(err, id){
           if(err)
           {
@@ -57,6 +57,7 @@ router.route('/:id')
     })
     .get(function(request,response){
         var storyId = request.params.id;
+
         db_stories.getById(storyId, function(err,story){
             if(err)
             {

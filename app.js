@@ -6,9 +6,27 @@ var app = express();
 var db = require('./db');
 var router = require('./routes/stories');
 
-app.use('/stories',router);
+ app.use('/stories',router);
 
-app.use(express.static('./public'));
+ app.use(express.static('./public'));
+
+// app.get('http://e84c4736.ngrok.io/stories',function(req,res){
+//
+//
+//             db_stories.getAll(function(err, stories){
+//                 if(err)
+//                 {
+//                     response.status(500).json("Internal Server Error");
+//                 }else
+//                 {
+//                     //console.log("THE STORIES ARE ",stories);
+//                     response.status(200).json(stories);
+//                 }
+//             })
+//
+//
+//             });
+
 
 
 db.connect(db.MODE_TEST, function(err) {

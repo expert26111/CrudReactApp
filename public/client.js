@@ -242,7 +242,7 @@ class StoryBox extends React.Component {
 
     _deleteStory(story)
     {
-        console.log("THE STORY TO BE DELETED ", story);
+       // console.log("THE STORY TO BE DELETED ", story);
         $.ajax({
             method: 'DELETE',
             // data: story,
