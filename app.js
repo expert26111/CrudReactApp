@@ -29,6 +29,7 @@ var router = require('./routes/stories');
 
 
 
+
 db.connect(db.MODE_TEST, function(err) {
     if (err) {
         console.log('Unable to connect to MySQL.')
