@@ -1,4 +1,5 @@
-FROM node:boron
+
+FROM node:8.6.0
 
 # Create app directory
 WORKDIR /usr/src
@@ -13,5 +14,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4000
 CMD [ "node", "app.js" ]
