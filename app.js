@@ -6,7 +6,7 @@ var app = express();
 var db = require('./db');
 var router = require('./routes/stories');
 
-var port = process.env.PORT || 3000
+// var port = process.env.PORT || 3000
 
  app.use('/stories',router);
 
@@ -37,7 +37,7 @@ db.connect(db.MODE_TEST, function(err) {
         console.log('Unable to connect to MySQL.')
         process.exit(1)
     } else {
-        app.listen(port, function() {
+        app.listen(4000, function() {
             console.log('app listening...')
         })
     }
