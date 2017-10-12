@@ -15,14 +15,27 @@ var state = {
     mode: null,
 }
 
-exports.connect = function(done) {
-    state.pool = mysql.createPool({
-        host: 'database:3306'
-    })
+// exports.connect = function(done) {
+//     state.pool = mysql.createPool({
+//         host: 'database:3306'
+//     })
+//
+//     state.mode = mode
+//     done()
+// }
 
+
+exports.connect = function(mode, done) {
+    state.pool = mysql.createPool({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
+    })
     state.mode = mode
     done()
 }
+
 
 exports.get = function() {
     return state.pool
