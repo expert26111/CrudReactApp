@@ -25,9 +25,21 @@ var state = {
 // }
 
 
+// exports.connect = function(mode, done) {
+//     state.pool = mysql.createPool({
+//         host: 'localhost',
+//         user: 'root',
+//         password: 'root',
+//         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
+//     })
+//     state.mode = mode
+//     done()
+// }
+
+
 exports.connect = function(mode, done) {
     state.pool = mysql.createPool({
-        host: 'localhost',
+        host: '172.17.0.1',
         user: 'root',
         password: 'root',
         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
