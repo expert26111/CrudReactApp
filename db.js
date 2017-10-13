@@ -26,6 +26,7 @@ var state = {
 
 
 // exports.connect = function(mode, done) {
+//     console.log(" inside connect method ");
 //     state.pool = mysql.createPool({
 //         host: 'localhost',
 //         user: 'root',
@@ -40,7 +41,7 @@ var state = {
 exports.connect = function(mode, done) {
     console.log(" inside connect method ");
     state.pool = mysql.createPool({
-        host: 'db:3306',
+        host: 'db',
         user: 'root',
         password: 'root',
         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
