@@ -28,6 +28,7 @@
     "babel-runtime": "^6.26.0",
     "body-parser": "^1.18.0",
     "check-node-version": "^2.1.0",
+    "cors": "^2.8.4",
     "es6-promise": "^4.1.1",
     "express": "^4.15.4",
     "express-promise-router": "^2.0.0",

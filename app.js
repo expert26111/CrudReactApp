@@ -5,9 +5,12 @@ var express = require('express');
 var app = express();
 var db = require('./db');
 var router = require('./routes/stories');
+var cors = require('cors');
 
 // var port = process.env.PORT || 3000
 
+
+ app.use(cors());
  app.use('/stories',router);
 
  app.use(express.static('./public'));
