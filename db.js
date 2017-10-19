@@ -41,7 +41,7 @@ var state = {
 exports.connect = function(mode, done) {
     console.log(" inside connect method ");
     state.pool = mysql.createPool({
-        host: '46.101.251.32',
+        host: 'localhost',
         port: '3306',
         user: 'root',
         password: 'root',
