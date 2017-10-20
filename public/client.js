@@ -246,7 +246,7 @@ class StoryBox extends React.Component {
         $.ajax({
             method: 'DELETE',
             // data: story,
-            url: `http://localhost:4000/stories/${story.Id}`,
+            url: `http://46.101.251.32:4000/stories/${story.Id}`,
             success: (message) => {
                 //  console.log("the stories are ",stories);
                 // this.setState({ stories });
@@ -307,7 +307,7 @@ class StoryBox extends React.Component {
         $.ajax({
             method: 'POST',
             data: story,
-            url: 'http://localhost:4000/stories/',
+            url: 'http://46.101.251.32:4000/stories/',
             success: (stories) => {
               //  console.log("the stories are ",stories);
                 // this.setState({ stories });
@@ -323,7 +323,7 @@ class StoryBox extends React.Component {
     _fetchComments() {
         $.ajax({
             method: 'GET',
-            url: 'http://localhost:4000/stories/',
+            url: 'http://46.101.251.32:4000/stories/',
             success: (stories) => {
                // console.log("the stories are ",stories);
 
@@ -416,16 +416,6 @@ class Story extends React.Component {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
