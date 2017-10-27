@@ -32,6 +32,7 @@
     "es6-promise": "^4.1.1",
     "express": "^4.15.4",
     "express-promise-router": "^2.0.0",
+    "jsonwebtoken": "^8.1.0",
     "moment": "^2.18.1",
     "mysql": "^2.14.1",
     "react": "^15.6.1",

@@ -10,10 +10,10 @@ var db = require('./db.js')
 exports.create =  function(title , description , date , img , link,  done) {
     var values = [title, description, date, img , link]
 
-        db.get().query('INSERT INTO stories ( title, description, date_entry, ImgLink , Link) VALUES(?, ? , ? , ? , ?)', values, function(err, result) {
+    db.get().query('INSERT INTO stories ( title, description, date_entry, ImgLink , Link) VALUES(?, ? , ? , ? , ?)', values, function(err, result) {
         if (err) return done(err)
         console.log('the returning value ',result);
-      //  return result.insertId;
+        //  return result.insertId;
         done(null, result.insertId)
     })
 }
@@ -92,8 +92,26 @@ exports.getById =  function(storyId ,done) {
     })
 }
 
+exports.getUserByName =  function(name ,done) {
+
+    var value = name
+    db.get().query('SELECT * FROM user WHERE name = ?', value, function(err, rows) {
+        if (err) return done(err)
+        console.log('the returning value ',rows);
+        //  return result.insertId;
+        done(null, rows)
+    })
+}
+
 exports.getAll = function(done) {
     db.get().query('SELECT * FROM stories', function (err, rows) {
+        if (err) return done(err)
+        done(null, rows)
+    })
+}
+
+exports.getAllUsers = function(done) {
+    db.get().query('SELECT * FROM user', function (err, rows) {
         if (err) return done(err)
         done(null, rows)
     })
