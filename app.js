@@ -2,6 +2,7 @@
  * Created by Yoana on 9/12/2017.
  */
 var express = require('express');
+var db = require('./db');
 var app = express();
 var db = require('./db');
 var router = require('./routes/stories');
@@ -32,19 +33,19 @@ var cors = require('cors');
 //
 //             });
 
+module.exports = app;
 
 
-
-db.connect(db.MODE_TEST, function(err) {
-    if (err) {
-        console.log('Unable to connect to MySQL.')
-        process.exit(1)
-    } else {
-        app.listen(4000, function() {
-            console.log('app listening...')
-        })
-    }
-})
+// db.connect(db.MODE_TEST, function(err) {
+//     if (err) {
+//         console.log('Unable to connect to MySQL.')
+//         process.exit(1)
+//     } else {
+//         app.listen(4000, function() {
+//             console.log('app listening...')
+//         })
+//     }
+// })
 
 // app.listen(port, function() {
 //             console.log('app listening...')
