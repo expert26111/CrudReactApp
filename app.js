@@ -3,7 +3,8 @@
  */
 var express = require('express');
 // var db = require('./db');
-var app = express();
+ var app = express();
+// var app = module.exports = express();
 // var db = require('./db');
 var router = require('./routes/stories');
 var routerAuthenticate = require('./routes/authenticate');
@@ -34,7 +35,7 @@ var config = require('./config');
 //
 //             });
 
-module.exports = app;
+ module.exports = app;
 
 
 // db.connect(db.MODE_TEST, function(err) {

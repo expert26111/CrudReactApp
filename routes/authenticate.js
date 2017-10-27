@@ -2,8 +2,8 @@
  * Created by Yoana on 10/20/2017.
  */
 
-var app = require('.././app');
 var express = require('express');
+var app = require('.././app');
 var db_stories = require('../db_users');
 var router = express.Router();
 //var babelregister  = require('babel-register')({stage: 1});
@@ -24,7 +24,7 @@ router.route('/')
                 response.status(500).json("Internal Server Error");
             }else
             {
-                //console.log("THE STORIES ARE ",stories);
+                // console.log("THE STORIES ARE ",to);
                 response.status(200).json(users);
             }
         })
@@ -42,12 +42,12 @@ router.route('/')
                     response.status(500).json("Internal Server Error");
                 }else
                 {
-                    if(!user)
+                    if(user.length == 0)
                     {
                         response.json({ success: false, message: 'Authentication failed. User not found.' });
                     }else if(user)
                     {
-                        if(user[0].password != req.body.password)
+                        if(user[0].password != request.body.password)
                         {
                             response.json({ success: false, message: 'Authentication failed. Wrong password.' });
                         }else
@@ -57,9 +57,10 @@ router.route('/')
                                 admin: user.admin
                                 };
 
-                            var token = jwt.sign(payload, app.get('superSecret'), {
-                                expiresInMinutes: 1440 // expires in 24 hours
+                            var token = jwt.sign(payload,  config.secret , {
+                                expiresIn: 60*60*24 // expires in 24 hours
                             });
+                            console.log("the token is ",token);
 
                             // return the information including token as JSON
                             response.json({
