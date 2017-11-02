@@ -17,12 +17,25 @@ var state = {
     mode: null,
 }
 
+// exports.connect = function(mode, done) {
+//     console.log(" inside connect method ");
+//     state.pool = mysql.createPool({
+//         host: 'us-cdbr-iron-east-05.cleardb.net',
+//         user: 'b5be55e5b20b7f',
+//         password: 'e5f589ee',
+//         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
+//     })
+//     state.mode = mode
+//     done()
+// }
+
+
 exports.connect = function(mode, done) {
     console.log(" inside connect method ");
     state.pool = mysql.createPool({
-        host: 'us-cdbr-iron-east-05.cleardb.net',
-        user: 'b5be55e5b20b7f',
-        password: 'e5f589ee',
+        host: '46.101.251.32',
+        user: 'root',
+        password: 'root',
         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
     })
     state.mode = mode
