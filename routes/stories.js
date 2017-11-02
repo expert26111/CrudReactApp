@@ -9,35 +9,35 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
-router.use(function(request,response,next){
-
-    var token = request.body.token || request.query.token || request.headers['x-access-token'];
-    if (token) {
-
-        // verifies secret and checks exp
-        jwt.verify(token,  config.secret, function(err, decoded) {
-            if (err) {
-                return response.json({ success: false, message: 'Failed to authenticate token.' });
-            } else {
-                // if everything is good, save to request for use in other routes
-                request.decoded = decoded;
-                next();
-            }
-        });
-
-    } else {
-
-        // if there is no token
-        // return an error
-        return response.status(403).send({
-            success: false,
-            message: 'No token provided.'
-        });
-
-    }
-
-
-})
+// router.use(function(request,response,next){
+//
+//     var token = request.body.token || request.query.token || request.headers['x-access-token'];
+//     if (token) {
+//
+//         // verifies secret and checks exp
+//         jwt.verify(token,  config.secret, function(err, decoded) {
+//             if (err) {
+//                 return response.json({ success: false, message: 'Failed to authenticate token.' });
+//             } else {
+//                 // if everything is good, save to request for use in other routes
+//                 request.decoded = decoded;
+//                 next();
+//             }
+//         });
+//
+//     } else {
+//
+//         // if there is no token
+//         // return an error
+//         return response.status(403).send({
+//             success: false,
+//             message: 'No token provided.'
+//         });
+//
+//     }
+//
+//
+// })
 
 router.route('/')
 .post(parseUrlencoded, function (request,response){
