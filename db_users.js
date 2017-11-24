@@ -7,10 +7,10 @@ var db = require('./db.js')
 
 
 
-exports.create =  function(title , description , date , img , link,  done) {
-    var values = [title, description, date, img , link]
+exports.create =  function(title , description , date , img , link, permanent,  done) {
+    var values = [title, description, date, img , link, permanent]
 
-    db.get().query('INSERT INTO stories ( title, description, date_entry, ImgLink , Link) VALUES(?, ? , ? , ? , ?)', values, function(err, result) {
+    db.get().query('INSERT INTO stories ( title, description, date_entry, ImgLink , Link , permanent) VALUES(?, ? , ? , ? , ? , ?)', values, function(err, result) {
         if (err) return done(err)
         console.log('the returning value ',result);
         //  return result.insertId;

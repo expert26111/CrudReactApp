@@ -7,7 +7,7 @@ var db = require('./db');
 
 app.set('port',(process.env.PORT || 4000))
 
-db.connect(db.MODE_PRODUCTION, function(err) {
+db.connect(db.MODE_TEST, function(err) {
     if (err) {
         console.log('Unable to connect to MySQL.')
         process.exit(1)
