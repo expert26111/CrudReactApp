@@ -42,7 +42,7 @@ var state = {
 //     done()
 // }
 
-//LOCAL
+//LOCAL 172.17.0.1
 exports.connect = function(mode, done) {
     console.log(" inside connect method ");
     state.pool = mysql.createPool({
