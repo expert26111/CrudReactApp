@@ -41,8 +41,9 @@ var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
 router.route('/')
 .post(parseUrlencoded, function (request,response){
-         //console.log("THE BODY IS ",request.body);
-    db_stories.create(request.body.title, request.body.description, new Date(), request.body.img, request.body.link, function(err, id){
+
+         console.log("THE BODY IS ",request.body.permanent);
+    db_stories.create(request.body.title, request.body.description, new Date(), request.body.img, request.body.link, request.body.permanent, function(err, id){
           if(err)
           {
               console.log(err);

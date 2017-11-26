@@ -29,24 +29,11 @@ var state = {
 //     done()
 // }
 
-
-exports.connect = function(mode, done) {
-    console.log(" inside connect method ");
-    state.pool = mysql.createPool({
-        host: '46.101.251.32',
-        user: 'root',
-        password: 'root',
-        database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
-    })
-    state.mode = mode
-    done()
-}
-
-//LOCAL
+//
 // exports.connect = function(mode, done) {
 //     console.log(" inside connect method ");
 //     state.pool = mysql.createPool({
-//         host: 'localhost',
+//         host: '46.101.251.32',
 //         user: 'root',
 //         password: 'root',
 //         database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
@@ -54,6 +41,19 @@ exports.connect = function(mode, done) {
 //     state.mode = mode
 //     done()
 // }
+
+//LOCAL 172.17.0.1
+exports.connect = function(mode, done) {
+    console.log(" inside connect method ");
+    state.pool = mysql.createPool({
+        host: '172.17.0.1',
+        user: 'root',
+        password: 'root',
+        database: mode === exports.MODE_PRODUCTION ? PRODUCTION_DB : TEST_DB
+    })
+    state.mode = mode
+    done()
+}
 
 
 
