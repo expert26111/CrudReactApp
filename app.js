@@ -16,7 +16,7 @@ var config = require('./config');
  app.use(cors());
  app.use('/stories',router);
  app.use('/authenticate', routerAuthenticate);
- app.use(express.static('./public'));
+ // app.use(express.static('./public'));
 
 // app.get('http://e84c4736.ngrok.io/stories',function(req,res){
 //
