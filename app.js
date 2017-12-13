@@ -6,12 +6,17 @@ var express = require('express');
  var app = express();
 // var app = module.exports = express();
 // var db = require('./db');
+var cors = require('cors');
+const bodyParser = require('body-parser');
 var router = require('./routes/stories');
 var routerAuthenticate = require('./routes/authenticate');
-var cors = require('cors');
 var config = require('./config');
 // var port = process.env.PORT || 3000
  app.set('superSecret', config.secret); // secret variabl
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
  app.use(cors());
  app.use('/stories',router);

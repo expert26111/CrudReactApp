@@ -10,14 +10,31 @@ var router = express.Router();
 var jwt    = require('jsonwebtoken');
 var config = require('.././config'); // get our config file
 // var port = process.env.PORT || 3000
-
-
-
 var bodyParser = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
+
+router.route('/user')
+    .post(function(request,response, next){
+        console.log("the body is  ",request.body);
+        db_stories.getAllUserByNameAndPass(request.body.name, request.body.password, function(err, users){
+            if(err)
+            {
+               // response.status(500).json("Internal Server Error , ", err);
+                response.status(500).json({"error ":err});
+            }else
+            {
+                // console.log("THE STORIES ARE ",to);
+                response.status(200).json(users);
+            }
+        })
+    });
+
+
+
+
 router.route('/')
-    .get(function(request,response){
+    .get(function(request,response,next){
         db_stories.getAllUsers(function(err, users){
             if(err)
             {
@@ -29,7 +46,7 @@ router.route('/')
             }
         })
     })
-    .post(parseUrlencoded, function (request,response)
+    .post(parseUrlencoded, function (request,response, next)
     {
         console.log("THE BODY IS ",request.body.name);
         db_stories.getUserByName(request.body.name, function(err, user)

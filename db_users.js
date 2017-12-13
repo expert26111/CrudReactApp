@@ -117,6 +117,15 @@ exports.getAllUsers = function(done) {
     })
 }
 
+exports.getAllUserByNameAndPass = function(name, pass, done) {
+    console.log(" THE USER AND THE pass is  ",name, " ",pass);
+
+    db.get().query('SELECT * FROM user where name = ? and password = ?',[name,pass], function (err, rows) {
+        if (err) return done(err)
+        done(null, rows)
+    })
+}
+
 exports.deleteById = function(storyId,done) {
     //console.log("THE ID INSIDE DELETE ",storyId);
     db.get().query('DELETE  FROM stories WHERE Id = ?', storyId, function (err, rows) {
@@ -125,6 +134,11 @@ exports.deleteById = function(storyId,done) {
         done(null, rows)
     })
 }
+
+
+
+
+
 
 // exports.create = async function(name,origin) {
 //     var values = [name, origin]
